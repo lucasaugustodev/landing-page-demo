@@ -176,10 +176,16 @@
         <div class="container">
             <h2>Pronto para automatizar?</h2>
             <p>Junte-se a mais de 10.000 empresas que ja transformaram seus fluxos de trabalho.</p>
-            <form class="cta-form">
-                <input type="email" placeholder="seu@email.com" required>
-                <button type="submit" class="btn btn-primary btn-lg">Comecar Gratis</button>
+            <form class="cta-form" id="leadForm">
+                <div class="form-fields">
+                    <input type="text" name="nome" placeholder="Seu nome" required>
+                    <input type="email" name="email" placeholder="seu@email.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Comecar Gratis</button>
             </form>
+            <div id="formSuccess" class="form-success" style="display:none;">
+                <p>Cadastro realizado com sucesso! Em breve entraremos em contato.</p>
+            </div>
             <small>Gratis para sempre no plano Starter. Sem cartao de credito.</small>
         </div>
     </section>
@@ -217,5 +223,17 @@
             <p>&copy; 2026 FlowAI. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script>
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var nome = this.nome.value.trim();
+            var email = this.email.value.trim();
+            if (nome && email) {
+                console.log('Lead capturado:', { nome: nome, email: email });
+                this.style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -416,13 +416,20 @@ body {
 
 .cta-form {
     display: flex;
-    gap: 12px;
-    max-width: 500px;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 480px;
     margin: 0 auto 16px;
 }
 
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .cta-form input {
-    flex: 1;
+    width: 100%;
     padding: 14px 20px;
     border-radius: 8px;
     border: 1px solid var(--border);
@@ -435,6 +442,17 @@ body {
 
 .cta-form input:focus {
     border-color: var(--primary);
+}
+
+.form-success {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-weight: 500;
 }
 
 .cta small {
